@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -43,7 +44,7 @@ class GroupController extends Controller
 //        if($request->isMethod('post')){
         $bookData = $request->all();
 
-        foreach ($bookData['books'] as $key => $value) {
+        foreach ($bookData['contacts'] as $key => $value) {
             $book = new Contact();
             $book->user_id = auth()->user()->id;
             $book->group_id = $request->group_id;
@@ -62,7 +63,7 @@ class GroupController extends Controller
 
             return response()->json([
                 'message' => 'success',
-                'contact' => $bookData['books'],
+                'contact' => $bookData['contacts'],
 
             ]);
         }
@@ -93,6 +94,93 @@ class GroupController extends Controller
 
 
 
+        }
+
+
+        public function list(){
+            $user_id = auth()->user()->id;
+            $groups = Group::where('user_id','=',$user_id)->get();
+            if ($groups ->isEmpty()){
+                return response()->json([
+                    'message'=>'No group found'
+                ],404);
+            }else{
+                return  response()->json([
+                   'message'=>'Success',
+                   'groups'=>$groups
+                ]);
+            }
+        }
+
+        public function delete($id){
+            $user_id = auth()->user()->id;
+            $group = Group::find($id);
+            if ($group){
+                if ($group->user_id == $user_id){
+
+                    $group->delete();
+
+                    return response()->json([
+                        'message'=>'group delete successful',
+                    ],200);
+                }else{
+                    return response()->json([
+                        'message'=>'this is not your group',
+
+                    ],401);
+                }
+            }else{
+                return  response()->json([
+                    'message'=>'group not found'
+                ],404);
+            }
+
+        }
+
+        public function contact_delete($id){
+
+            $contact = Contact::find($id);
+            $user_id = auth()->user()->id;
+            if ($contact){
+                if ($contact->user_id == $user_id){
+                    $contact->delete();
+                    return  response()->json([
+                        'message'=>"contact delete successfully"
+                    ],200);
+                }else{
+                    return  response()->json([
+                       'message'=>'This is not your contact '
+                    ],401);
+                }
+            }else{
+                return response()->json([
+                   'message'=>'Contact not found'
+                ]);
+            }
+
+        }
+
+        public function group_contact($id){
+            $group = Group::find($id);
+            $user_id = auth()->user()->id;
+            if ($group){
+                if ($group->use_id == $user_id){
+                    $contacts = Contact::where('group_id','=',$id)->get();
+                    $data = ['group'=>$group,'contacts' => $contacts];
+                    return  response()->json([
+                       'message'=>'success',
+                       'data'=>$data
+                    ]);
+                }else{
+                    return  response()->json([
+                       'message'=>'this is not your group'
+                    ],401);
+                }
+            }else{
+                return response()->json([
+                   'message'=>'group not found'
+                ],404);
+            }
         }
 
 }
