@@ -10,7 +10,7 @@ class TemplateController extends Controller
 {
     public function add_template(Request $request){
         $request->validate([
-           'template_name'=>'required',
+//           'template_name'=>'required',
            'message'=>'required'
         ]);
 

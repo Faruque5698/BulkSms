@@ -20,6 +20,9 @@ class CreateSMSCredentialsTable extends Migration
             $table->string('api_token');
             $table->string('sid');
             $table->string('domain');
+            $table->integer('balance')->default(0);
+            $table->integer('last_balance')->default(0);
+            $table->integer('total_used')->default(0);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

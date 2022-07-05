@@ -39,3 +39,20 @@
 
         return $response;
 }
+
+function image_upload ($image){
+//    $image = $request->file('image');
+    $imageName = uniqid().$image->getClientOriginalName();
+    $directory = 'assets/backend/image/kyc/';
+    $imageUrl = $directory.$imageName;
+    $image -> move($directory,$imageName);
+    return $imageUrl;
+}
+function file_upload ($file){
+//    $image = $request->file('image');
+    $fileName = uniqid().$file->getClientOriginalName();
+    $directory = 'assets/backend/file/kyc/';
+    $fileUrl = $directory.$fileName;
+    $file -> move($directory,$fileName);
+    return $fileUrl;
+}

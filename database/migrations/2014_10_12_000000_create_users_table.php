@@ -20,10 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('mobile',15)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('village')->nullable();
-            $table->string('city')->nullable();
-            $table->string('region')->nullable();
-            $table->string('country')->nullable();
+            $table->text('residential_address')->nullable();
+            $table->string('office_name')->nullable();
+            $table->string('office_address')->nullable();
+            $table->date('dob')->nullable();
             $table->string('nid',20)->nullable();
             $table->tinyInteger('role')->default(0);
             $table->tinyInteger('status')->default(0);

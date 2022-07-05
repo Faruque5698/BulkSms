@@ -1,0 +1,677 @@
+{
+	"info": {
+		"_postman_id": "618e30ec-c2c1-457d-a8a8-ccd84b17edf0",
+		"name": "BulkSms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15716619"
+	},
+	"item": [
+		{
+			"name": "group",
+			"item": [
+				{
+					"name": "create group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "group_name",
+									"value": "test1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/create-group",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"create-group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"group_id\":\"\",\r\n\r\n    \"contacts\":[{\r\n\t\"name\":\"Nahid23\",\r\n  \t\"number\":\"01764885587\"\r\n\t},\r\n\t {\r\n\t   \"name\":\"Hridoy23\",\r\n  \t\t\"number\":\"01768003197\"\r\n\t } ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/add",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "group list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/group_list",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"group_list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/group/delete/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"group",
+								"delete",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Template",
+			"item": [
+				{
+					"name": "Add Template",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "template_name",
+									"value": "Marriage",
+									"type": "text"
+								},
+								{
+									"key": "message",
+									"value": "Happy Married life to You",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/add_template",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"add_template"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Template List",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Template Delete",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SMS",
+			"item": [
+				{
+					"name": "Sms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"testing\",\r\n\r\n    \"contacts\":[\r\n        {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t },\r\n         {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t }\r\n     \r\n      ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/send-sms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"send-sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Non Musk sms",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\":\"testing\",\r\n\r\n    \"contacts\":[\r\n        {\r\n  \t\"mobile\":\"01648583443\"\r\n\t},\r\n\t {\r\n  \t\t\"mobile\":\"01768003197\"\r\n\t },\r\n     {\r\n  \t\t\"mobile\":\"01684208275\"\r\n\t }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/nonmusk/send-sms",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nonmusk",
+								"send-sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Musk List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/muskList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"muskList"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Non musk list",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/nonmuskList",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"nonmuskList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "kyc",
+			"item": [
+				{
+					"name": "Upload",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Test",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "test@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "12345678",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "01764885587",
+							"type": "text"
+						},
+						{
+							"key": "nid",
+							"value": "1234567899874",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile",
+							"value": "01764885587",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "12345678",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{access_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/profile",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OTP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile",
+							"value": "01648583443",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/otp-send",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"otp-send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "otp verify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "code",
+							"value": "45443",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/otp-check",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"otp-check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "pinset",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "otp",
+							"value": "45443",
+							"type": "text"
+						},
+						{
+							"key": "pin",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{base_url}}/pin-set",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"pin-set"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

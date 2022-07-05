@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('cache-clear',[\App\Http\Controllers\SMSController::class,'cache']);
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -21,6 +23,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('register',[\App\Http\Controllers\API\AuthController::class,'register']);
 Route::post('login',[\App\Http\Controllers\API\AuthController::class,'login']);
+Route::post('otp-send',[\App\Http\Controllers\API\AuthController::class,'send_otp']);
+Route::post('otp-check',[\App\Http\Controllers\API\AuthController::class,'otp_check']);
+Route::post('pin-set',[\App\Http\Controllers\API\AuthController::class,'pin_set']);
+
+
 
 Route::group(["middleware" => ["auth:api","active"]], function(){
     Route::get('profile',[\App\Http\Controllers\API\AuthController::class,'profile']);
@@ -45,6 +52,14 @@ Route::group(["middleware" => ["auth:api","active"]], function(){
     Route::post('csvtojson',[\App\Http\Controllers\Api\GroupController::class,'csv']);
 
     Route::post('send-sms',[\App\Http\Controllers\SMSController::class,'send']);
+    Route::post('nonmusk/send-sms',[\App\Http\Controllers\SMSController::class,'send2']);
+
+    Route::get('muskList',[\App\Http\Controllers\SMSController::class,'muskList']);
+    Route::get('nonmuskList',[\App\Http\Controllers\SMSController::class,'nonmuskList']);
+
+    Route::post('kyc',[\App\Http\Controllers\API\AuthController::class,'kyc']);
+    Route::get('kyc/list',[\App\Http\Controllers\API\AuthController::class,'kyc_list']);
+
 
 
 });

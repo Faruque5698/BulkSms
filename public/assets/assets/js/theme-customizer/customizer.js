@@ -30,7 +30,7 @@ $(document).ready(function () {
     });
 
 
-    
+
     if(localStorage.getItem("primary") != null) {
         document.documentElement.style.setProperty('--theme-deafult', localStorage.getItem("primary"));
     }
@@ -119,7 +119,7 @@ $(document).ready(function () {
             }
             case 'normal-sidebar': {
                 $(".page-wrapper").attr("class", "page-wrapper horizontal-wrapper " + boxed);
-                $(".logo-wrapper").find('img').attr('src', '../assets/images/logo/logo.png');
+                $(".logo-wrapper").find('img').attr('src', '../assets/images/logo/login.png');
                 localStorage.setItem('page-wrapper', 'horizontal-wrapper');
                 break;
             }
@@ -166,19 +166,19 @@ $(document).ready(function () {
             case 'material-layout': {
                 $(".page-wrapper").attr("class", "page-wrapper horizontal-wrapper material-type" + boxed);
                 localStorage.setItem('page-wrapper', 'horizontal-wrapper material-type');
-                
+
                 break;
             }
             case 'material-icon': {
                 $(".page-wrapper").attr("class", "page-wrapper compact-sidebar compact-small material-icon" + boxed);
                 localStorage.setItem('page-wrapper', 'compact-sidebar compact-small material-icon');
-                
+
                 break;
             }
             case 'advance-type': {
                 $(".page-wrapper").attr("class", "page-wrapper horizontal-wrapper enterprice-type advance-layout" + boxed);
                 localStorage.setItem('page-wrapper', 'horizontal-wrapper enterprice-type advance-layout');
-                
+
                 break;
             }
             default: {
